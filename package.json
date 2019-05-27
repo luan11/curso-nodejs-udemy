@@ -1,0 +1,22 @@
+{
+  "name": "curso-nodejs-udemy",
+  "version": "1.0.0",
+  "description": "Projeto do curso da Udemy",
+  "main": "notices.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luan11/curso-nodejs-udemy.git"
+  },
+  "author": "Luan Novais",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luan11/curso-nodejs-udemy/issues"
+  },
+  "homepage": "https://github.com/luan11/curso-nodejs-udemy#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
