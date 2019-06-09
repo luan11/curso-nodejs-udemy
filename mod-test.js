@@ -1,0 +1,1 @@
+module.exports = () => "This module contains only string";

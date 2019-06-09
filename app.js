@@ -1,16 +1,7 @@
-const app = require('express')();
-app.set('view engine', 'ejs');
+const app = require('./config/server');
 
-app.get('/', (req, res) => {
-    res.render('home/index');
-});
-
-app.get('/add-news', (req, res) => {
-    res.render('admin/form_add_noticia');
-});
-
-app.get('/news', (req, res) => {
-    res.render('noticias/noticias');
-});
+const home = require('./app/routes/home')(app);
+const addNews = require('./app/routes/add-news')(app);
+const news = require('./app/routes/news')(app);
 
 app.listen(9000, () => console.log('Server running with express'));
