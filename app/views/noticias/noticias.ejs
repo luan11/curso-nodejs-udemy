@@ -8,5 +8,22 @@
 
 		<h1>News</h1>
 
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Title</th>
+				<th>News</th>
+				<th>Date</th>
+			</tr>
+			<% for(let i = 0; i < news.length; i++){ %>
+			<tr>
+				<td><%= news[i].id_noticia %></td>
+				<td><%= news[i].titulo %></td>
+				<td><%= news[i].noticia %></td>
+				<td><%= news[i].data_criacao %></td>
+			</tr>
+			<% } %>
+		</table>
+
 	</body>
 </html>
