@@ -6,7 +6,22 @@
 		</head>
 	<body>
 
-		<h1>News</h1>
+		<h1>Single News</h1>
 
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Title</th>
+				<th>News</th>
+				<th>Date</th>
+			</tr>
+			<tr>
+				<td><%= news[0].id_noticia %></td>
+				<td><%= news[0].titulo %></td>
+				<td><%= news[0].noticia %></td>
+				<td><%= news[0].data_criacao %></td>
+			</tr>
+		</table>
+		
 	</body>
 </html>
