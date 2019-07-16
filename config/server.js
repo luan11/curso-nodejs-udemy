@@ -6,6 +6,7 @@ const consign = require('consign');
 consign()
     .include('app/routes')
     .then('config/dbConn.js')
+    .then('app/models')
     .into(app);
 
 /* const msg = require('./mod-test')(); */

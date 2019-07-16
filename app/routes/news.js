@@ -3,7 +3,8 @@
 module.exports = app => {
     app.get('/news', (req, res) => {
         const conn = app.config.dbConn();
-        conn.query('SELECT * FROM noticias', (err, results) => {
+        const newsModel = app.app.models.newsModel;
+        newsModel.getNews(conn, (err, results) => {
             if(err){
                 console.log(err);
                 res.send('<h1>Error to connect database...</h1>');
