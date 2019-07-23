@@ -4,8 +4,8 @@ module.exports = app => {
     app.post('/news/save', (req, res) => {
         const news = req.body;
         const conn = app.config.dbConn();
-        const newsModel = app.app.models.newsModel;
-        newsModel.saveNews(news, conn, (err, results) => {
+        const newsModel = new app.app.models.NewsDAO(conn);
+        newsModel.saveNews(news, (err, results) => {
             if(err){
                 console.log(err);
                 res.send('<h1>Error to connect database...</h1>');
