@@ -8,25 +8,35 @@
 
 		<h1>Add news</h1>
 		<hr>
+
+		<% if(typeof validation !== 'undefined'){ %>
+		<ul>
+		<% for(var i = 0; i < validation.length; i++){ %>
+			<li><%= validation[i].msg; %></li>
+		<% } %>
+		</ul>
+		<hr>
+		<% } %>
+
 		<form action="/news/save" method="POST">
 			<p>
 				<label>Title:</label>
-				<input type="text" name="titulo" id="titulo" placeholder="Title of news">
+				<input type="text" name="titulo" id="titulo" value="<%= (typeof news !== 'undefined') ? news.titulo : ''; %>" placeholder="Title of news">
 			</p>
 			<p>
 				<label>Summary:</label>
-				<input type="text" name="resumo" id="resumo" placeholder="Summary of news">
+				<input type="text" name="resumo" id="resumo" value="<%= (typeof news !== 'undefined') ? news.resumo : ''; %>" placeholder="Summary of news">
 			</p>
 			<p>
 				<label>Author:</label>
-				<input type="text" name="autor" id="autor" placeholder="Author of news">
+				<input type="text" name="autor" id="autor" value="<%= (typeof news !== 'undefined') ? news.autor : ''; %>" placeholder="Author of news">
 			</p>
 			<p>
 				<label>Date:</label>
-				<input type="date" name="data_noticia" id="data_noticia" placeholder="Date of news">
+				<input type="date" name="data_noticia" id="data_noticia" value="<%= (typeof news !== 'undefined') ? news.data_noticia : ''; %>" placeholder="Date of news">
 			</p>
 			<p>
-				<textarea rows="5" cols="30" name="noticia" id="noticia" placeholder="Content of news"></textarea>
+				<textarea rows="5" cols="30" name="noticia" id="noticia" placeholder="Content of news"><%= (typeof news !== 'undefined') ? news.noticia : ''; %></textarea>
 			</p>
 			<p><input type="submit" placeholder="Enviar"></p>
 		</form>
