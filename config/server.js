@@ -15,6 +15,7 @@ consign()
     .include('app/routes')
     .then('config/dbConn.js')
     .then('app/models')
+    .then('app/controllers')
     .into(app);
 
 /* const msg = require('./mod-test')(); */
