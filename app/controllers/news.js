@@ -19,7 +19,7 @@ module.exports.singleNews = (app, req, res) => {
             console.log(err);
             res.send('<h1>Error to connect database...</h1>');
         }else{
-            res.render('noticias/noticias', { news: results });
+            res.render('noticias/noticia', { news: results });
         }
     });
 }

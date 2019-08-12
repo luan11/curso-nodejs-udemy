@@ -1,45 +1,89 @@
-<!DOCTYPE html>
-	<html lang="pt-br">
-		<head>
-			<meta charset="utf-8"/>
-			<title>Here you add in-app news</title>
-		</head>
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Portal de notícias</title>
+		
+		<!-- JQuery -->
+		<script src="js/jquery-2.2.1.js"></script>
+
+		<!-- bootstrap - link cdn -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	
+		<!-- incluindo css -->
+		<link href="css/style.css" rel="stylesheet">
+
+		<!-- favicon -->
+		<link rel="shortcut icon" href="images/favicon.ico" />
+	</head>
+
 	<body>
 
-		<h1>Add news</h1>
-		<hr>
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					
+					<img src="images/logo.png" />
+				</div>
 
-		<% if(typeof validation !== 'undefined'){ %>
-		<ul>
-		<% for(var i = 0; i < validation.length; i++){ %>
-			<li><%= validation[i].msg; %></li>
-		<% } %>
-		</ul>
-		<hr>
-		<% } %>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="index.html">HOME</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
-		<form action="/news/save" method="POST">
-			<p>
-				<label>Title:</label>
-				<input type="text" name="titulo" id="titulo" value="<%= (typeof news !== 'undefined') ? news.titulo : ''; %>" placeholder="Title of news">
-			</p>
-			<p>
-				<label>Summary:</label>
-				<input type="text" name="resumo" id="resumo" value="<%= (typeof news !== 'undefined') ? news.resumo : ''; %>" placeholder="Summary of news">
-			</p>
-			<p>
-				<label>Author:</label>
-				<input type="text" name="autor" id="autor" value="<%= (typeof news !== 'undefined') ? news.autor : ''; %>" placeholder="Author of news">
-			</p>
-			<p>
-				<label>Date:</label>
-				<input type="date" name="data_noticia" id="data_noticia" value="<%= (typeof news !== 'undefined') ? news.data_noticia : ''; %>" placeholder="Date of news">
-			</p>
-			<p>
-				<textarea rows="5" cols="30" name="noticia" id="noticia" placeholder="Content of news"><%= (typeof news !== 'undefined') ? news.noticia : ''; %></textarea>
-			</p>
-			<p><input type="submit" placeholder="Enviar"></p>
-		</form>
 
+	    <div class="container">
+		
+			<div class="row">
+				<div class="col-md-12">
+					<div class="alert alert-danger">
+						<strong>Atenção!</strong>
+						<ul>
+							<li>Título é obrigatório</li>
+							<li>Resumo é obrigatório</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+	    	<div class="row">
+	    		<div class="col-md-12">
+					<form action="/news/save" method="POST">
+						<div class="form-group">
+							<label>Title:</label>
+							<input class="form-control" type="text" name="titulo" id="titulo" value="<%= (typeof news !== 'undefined') ? news.titulo : ''; %>" placeholder="Title of news">
+						</p>
+						<div class="form-group">
+							<label>Summary:</label>
+							<input class="form-control" type="text" name="resumo" id="resumo" value="<%= (typeof news !== 'undefined') ? news.resumo : ''; %>" placeholder="Summary of news">
+						</p>
+						<div class="form-group">
+							<label>Author:</label>
+							<input class="form-control" type="text" name="autor" id="autor" value="<%= (typeof news !== 'undefined') ? news.autor : ''; %>" placeholder="Author of news">
+						</p>
+						<div class="form-group">
+							<label>Date:</label>
+							<input class="form-control" type="date" name="data_noticia" id="data_noticia" value="<%= (typeof news !== 'undefined') ? news.data_noticia : ''; %>" placeholder="Date of news">
+						</p>
+						<div class="form-group">
+							<textarea class="form-control" rows="5" cols="30" name="noticia" id="noticia" placeholder="Content of news"><%= (typeof news !== 'undefined') ? news.noticia : ''; %></textarea>
+						</div>
+						<p><input class="btn btn-default" type="submit" placeholder="Enviar"></p>
+					</form>
+		    	</div>
+	    	</div>
+	    </div>
+	
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	
 	</body>
 </html>
