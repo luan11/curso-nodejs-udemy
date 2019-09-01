@@ -35,7 +35,7 @@
 
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="index.html">HOME</a></li>
+						<li><a href="/">HOME</a></li>
 					</ul>
 				</div>
 			</div>
@@ -43,18 +43,22 @@
 
 
 	    <div class="container">
-		
+			
+			<% if(typeof validation !== 'undefined') { %>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="alert alert-danger">
 						<strong>Atenção!</strong>
 						<ul>
-							<li>Título é obrigatório</li>
-							<li>Resumo é obrigatório</li>
+							<% for(let i = 0; i < validation.length; i++) { %>
+							<li><%= validation[i].msg; %></li>
+							<% } %>
 						</ul>
 					</div>
 				</div>
 			</div>
+			<% } %>
+
 	    	<div class="row">
 	    		<div class="col-md-12">
 					<form action="/news/save" method="POST">

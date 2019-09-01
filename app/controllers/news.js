@@ -14,7 +14,9 @@ module.exports.newsListing = (app, req, res) => {
 module.exports.singleNews = (app, req, res) => {
     const conn = app.config.dbConn();
     const newsModel = new app.app.models.NewsDAO(conn);
-    newsModel.getSingleNews((err, results) => {
+    const theNewsId = req.query.thenews;
+
+    newsModel.getSingleNews(theNewsId, (err, results) => {
         if(err){
             console.log(err);
             res.send('<h1>Error to connect database...</h1>');

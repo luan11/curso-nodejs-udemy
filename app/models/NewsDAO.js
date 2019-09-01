@@ -3,11 +3,11 @@ function NewsDAO(connection){
 }
 
 NewsDAO.prototype.getNews = function(cb) {
-    this._conn.query('SELECT * FROM noticias', cb);
+    this._conn.query('SELECT * FROM noticias ORDER BY data_criacao DESC', cb);
 }
 
-NewsDAO.prototype.getSingleNews = function(cb) {
-    this._conn.query('SELECT * FROM noticias WHERE id_noticia = 2', cb);
+NewsDAO.prototype.getSingleNews = function(theNewsId, cb) {
+    this._conn.query(`SELECT * FROM noticias WHERE id_noticia = ${theNewsId}`, cb);
 }
 
 NewsDAO.prototype.saveNews = function(news, cb) {
